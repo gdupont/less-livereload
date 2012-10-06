@@ -1,0 +1,54 @@
+#!/usr/bin/env node
+
+/*jslint node: true */
+
+'use strict';
+
+var monitor = require('less-monitor');
+monitor.plugin = require('../lib/livereload');
+
+// ---------------------------------------------------------------
+// Initialize CLI
+// ---------------------------------------------------------------
+var cli = monitor.cli( monitor.app, {
+	'port': {
+		alias: 'p',
+		desc: 'Sets the server port of LiveReload. Defaults to 35729.'
+	},
+	'urlpath': {
+		alias: 'r',
+		desc: 'Sets the root HTTP directory.'
+	},
+	'optimization': {
+		alias: 'z',
+		desc: 'Sets the optimization level for the less compiler, options are: 0, 1, and 2.'
+	}
+});
+
+var log = cli.log;
+
+// ---------------------------------------------------------------
+// Initialize Less Monitor
+// ---------------------------------------------------------------
+monitor.app.init( cli.config );
+
+// ---------------------------------------------------------------
+// Initialize Less LiveReload
+// ---------------------------------------------------------------
+
+var colors = require('colors');
+
+monitor.plugin
+	.on( 'init', function( err ) {
+		log( 'LiveReload started.'.green );
+	})
+	.on( 'connection', function( client ) {
+		log( 'LiveReload client connected.'.green );
+	})
+	.on( 'handshake', function( client ) {
+		log( 'LiveReload handshake'.green, '[' + client.key.grey + ']' );
+	})
+	.on( 'close', function( client ) {
+		log( 'LiveReload client disconnected.'.green );
+	})
+	.init( monitor.app, cli.config );

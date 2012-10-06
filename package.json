@@ -1,0 +1,43 @@
+{
+  "name": "less-livereload",
+  "version": "0.1.0",
+  "description": "Monitor and LiveReload LESS files in your browser.",
+  "author": {
+    "name": "Guilherme Dupont",
+    "email": "guilhermedupont@gmail.com"
+  },
+  "main": "./index.js",
+  "tags": [
+    "less",
+    "livereload",
+    "live",
+    "css",
+    "monitor",
+    "watch",
+    "backwards",
+    "import",
+    "recompile",
+    "development"
+  ],
+  "bin": {
+    "less-livereload": "./bin/less-livereload"
+  },
+  "homepage": "https://github.com/gdupont/less-livereload",
+  "bugs": {
+    "url": "https://github.com/gdupont/less-livereload/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/gdupont/less-livereload.git"
+  },
+  "engines": {
+    "node": ">=0.8.1"
+  },
+  "preferGlobal": "true",
+  "dependencies": {
+    "mootools": ">=1.4.5",
+    "less-monitor": "0.2.0",
+    "ws": "0.4.22",
+    "colors": "0.6.0-1"
+  }
+}
