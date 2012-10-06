@@ -1,7 +1,7 @@
 {
   "name": "less-livereload",
   "version": "0.1.0",
-  "description": "Monitor and LiveReload LESS files in your browser.",
+  "description": "Monitor, parse and Live Reload LESS files in your browser.",
   "author": {
     "name": "Guilherme Dupont",
     "email": "guilhermedupont@gmail.com"
